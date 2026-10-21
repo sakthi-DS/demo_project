@@ -29,5 +29,5 @@ variable "private_subnet_cidr" {
 variable "availability_zone" {
     description = "The availability zone for the subnets"
     type        = string
-    default   = "ap-south-1"
+    default   = null
 }
