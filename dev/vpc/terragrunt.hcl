@@ -6,6 +6,9 @@ include "root" {
 terraform {
   source = "../../modules/vpc"
 }
+inputs = {
+  availability_zone = "ap-south-1a"
+}
 
 inputs = {
   project_name        = "demo-project"
