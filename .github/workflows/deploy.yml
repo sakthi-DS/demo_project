@@ -20,7 +20,7 @@ jobs:
       - name: Configure AWS
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: ${{ vars.AWS_ROLE_ARN }}
+          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
           aws-region: ap-south-1
 
       - name: Install Terraform and Terragrunt
@@ -39,7 +39,7 @@ jobs:
       - name: Deploy VPC
         working-directory: dev/vpc
         env:
-          TG_STATE_BUCKET: ${{ vars.TG_STATE_BUCKET }}
+          TG_STATE_BUCKET: ${{ secrets.TG_STATE_BUCKET }}
         run: |
           terragrunt init
           terragrunt validate
@@ -48,7 +48,7 @@ jobs:
       - name: Deploy EC2
         working-directory: dev/ec2
         env:
-          TG_STATE_BUCKET: ${{ vars.TG_STATE_BUCKET }}
+          TG_STATE_BUCKET: ${{ secrets.TG_STATE_BUCKET }}
         run: |
           terragrunt init
           terragrunt validate
