@@ -1,0 +1,21 @@
+# Terraform
+**/.terraform/*
+**/.terragrunt-cache/
+*.tfstate
+*.tfstate.*
+*.tfplan
+crash.log
+crash.*.log
+.terraform.lock.hcl
+
+# Secrets and local environment
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials
+.aws/
+
+# macOS
+.DS_Store
