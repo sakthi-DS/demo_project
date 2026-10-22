@@ -35,18 +35,18 @@ jobs:
           chmod +x terragrunt_linux_amd64
           sudo install terragrunt_linux_amd64 /usr/local/bin/terragrunt
 
-      - name: Destroy VPC
-        working-directory: dev/vpc
+    
+      - name: Destroy EC2
+        working-directory: dev/ec2
         env:
           TG_STATE_BUCKET: tg-learning-state-462025068285-ap-south-1
         run: |
           terragrunt init
           terragrunt validate
           terragrunt destroy -auto-approve
-          
 
-      - name: Destroy EC2
-        working-directory: dev/ec2
+      - name: Destroy VPC
+        working-directory: dev/vpc
         env:
           TG_STATE_BUCKET: tg-learning-state-462025068285-ap-south-1
         run: |
