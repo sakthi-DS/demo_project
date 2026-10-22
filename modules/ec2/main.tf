@@ -26,6 +26,7 @@ resource "aws_instance" "demo_ec2" {
   tags = {
     Name        = "${local.name}-EC2"
     environment = var.environment
+    env= prod
     
   }
 }
